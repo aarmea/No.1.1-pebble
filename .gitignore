@@ -1,0 +1,6 @@
+# Pebble built files
+build/
+.lock-waf*
+
+# Vim swap
+*.swp
