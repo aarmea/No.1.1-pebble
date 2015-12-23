@@ -4,7 +4,8 @@
 #include "windows/main_window.h"
 
 static void tick_handler(struct tm *time_now, TimeUnits changed) {
-  main_window_update(time_now->tm_hour, time_now->tm_min, time_now->tm_sec);
+  main_window_update(time_now->tm_mday, time_now->tm_hour, time_now->tm_min,
+      time_now->tm_sec);
 }
 
 static void init() {

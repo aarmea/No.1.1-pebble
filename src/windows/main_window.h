@@ -6,4 +6,4 @@
 
 void main_window_push();
 
-void main_window_update(int hours, int minutes, int seconds);
+void main_window_update(int day, int hours, int minutes, int seconds);
