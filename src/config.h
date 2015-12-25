@@ -28,8 +28,8 @@
 
 // TODO: Make this a user-accessible configuration option
 #define SHOW_DATE true
-#define DATE_FONT FONT_OSP_DIN_24
-#define DATE_FONT_HEIGHT 24
-#define DATE_WIDTH 24
-#define DATE_X_OFFSET 47
-#define DATE_Y_OFFSET (-DATE_FONT_HEIGHT / 2 - 3)
+#define DATE_FONT FONT_OSP_DIN_16
+#define DATE_FONT_HEIGHT 16
+#define DATE_WIDTH 16
+#define DATE_X_OFFSET 49
+#define DATE_Y_OFFSET (-DATE_FONT_HEIGHT / 2 - 2)

@@ -16,7 +16,7 @@
     "media": [
       {
         "type": "font",
-        "name": "FONT_OSP_DIN_24",
+        "name": "FONT_OSP_DIN_16",
         "file": "fonts/OSP-DIN/OSP-DIN.ttf"
       }
     ]
