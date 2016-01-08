@@ -74,6 +74,15 @@ static void layer_update_proc(Layer *layer, GContext *ctx) {
         SECONDS_DOTS_RADIUS);
   }
 
+  if (SHOW_DATE) {
+    GPoint date_center = s_center;
+    date_center.x += DATE_CIRCLE_X_OFFSET;
+    date_center.y += DATE_CIRCLE_Y_OFFSET;
+    graphics_context_set_fill_color(ctx, DATE_CIRCLE_FILL_COLOR);
+    graphics_fill_circle(ctx, date_center, DATE_CIRCLE_RADIUS);
+    graphics_draw_circle(ctx, date_center, DATE_CIRCLE_RADIUS);
+  }
+
   int minute_angle = get_precise_angle_for_minute(s_minutes, s_seconds);
   draw_hand(ctx, MINUTES_WIDTH, MINUTES_RADIUS, MINUTES_CENTER_RADIUS,
       DEG_TO_TRIGANGLE(minute_angle), 0 /*outer_circle_radius*/);
