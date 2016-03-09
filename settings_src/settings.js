@@ -3,6 +3,17 @@ const DEFAULT_SUBMIT_URL = 'pebblejs://close#';
 window.onload = function() {
   var submitButton = document.getElementById('submitButton');
   submitButton.addEventListener('click', onSubmit);
+
+  var config = JSON.parse(getQueryParam('config', '{}'));
+  for (key in config) {
+    switch(key) {
+      case 'SETTINGS_SHOW_DATE':
+        document.getElementById('showDate').checked = config[key];
+        break;
+      default:
+        break;
+    }
+  }
 };
 
 function onSubmit() {
