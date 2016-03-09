@@ -7,7 +7,7 @@ window.onload = function() {
 
 function onSubmit() {
   var config = {
-    'showDate': document.getElementById('showDate').checked
+    'SETTINGS_SHOW_DATE': document.getElementById('showDate').checked
   };
 
   var submitUrl = getQueryParam('return_to', DEFAULT_SUBMIT_URL);
