@@ -1,6 +1,7 @@
 #include "main_window.h"
 
 #include "../fonts.h"
+#include "../settings.h"
 
 static Window *s_window = NULL;
 static Layer *s_canvas = NULL;
@@ -74,7 +75,7 @@ static void layer_update_proc(Layer *layer, GContext *ctx) {
         SECONDS_DOTS_RADIUS);
   }
 
-  if (SHOW_DATE) {
+  if (settings_show_date()) {
     GPoint date_center = s_center;
     date_center.x += DATE_CIRCLE_X_OFFSET;
     date_center.y += DATE_CIRCLE_Y_OFFSET;
@@ -106,29 +107,26 @@ static void window_load(Window *window) {
 
   s_center = grect_center_point(&bounds);
 
-  if (SHOW_DATE) {
-    s_date_text = text_layer_create((GRect) {
-      .origin = (GPoint) {
-        .x = s_center.x + DATE_X_OFFSET,
-        .y = s_center.y + DATE_Y_OFFSET
-      },
-      .size = (GSize) {
-        .w = DATE_WIDTH,
-        .h = DATE_FONT_HEIGHT
-      }
-    });
-    text_layer_set_font(s_date_text, DATE_FONT);
-    text_layer_set_background_color(s_date_text, GColorClear);
-    text_layer_set_text_alignment(s_date_text, GTextAlignmentCenter);
-    text_layer_set_text(s_date_text, s_date_buffer);
+  s_date_text = text_layer_create((GRect) {
+    .origin = (GPoint) {
+      .x = s_center.x + DATE_X_OFFSET,
+      .y = s_center.y + DATE_Y_OFFSET
+    },
+    .size = (GSize) {
+      .w = DATE_WIDTH,
+      .h = DATE_FONT_HEIGHT
+    }
+  });
+  text_layer_set_font(s_date_text, DATE_FONT);
+  text_layer_set_background_color(s_date_text, GColorClear);
+  text_layer_set_text_alignment(s_date_text, GTextAlignmentCenter);
+  text_layer_set_text(s_date_text, s_date_buffer);
 
-    layer_add_child(s_canvas, (Layer *) s_date_text);
-  }
+  layer_add_child(s_canvas, (Layer *) s_date_text);
 }
 
 static void window_unload(Window *window) {
-  if (s_date_text)
-    text_layer_destroy(s_date_text);
+  text_layer_destroy(s_date_text);
   layer_destroy(s_canvas);
   window_destroy(s_window);
 }
@@ -149,8 +147,9 @@ void main_window_update(int day, int hours, int minutes, int seconds) {
   s_seconds = seconds;
   layer_mark_dirty(s_canvas);
 
-  if (s_date_text) {
+  if (settings_show_date())
     snprintf(s_date_buffer, sizeof(s_date_buffer), "%d", day);
-    layer_mark_dirty((Layer *) s_date_text);
-  }
+  else
+    s_date_buffer[0] = '\0';
+  layer_mark_dirty((Layer *) s_date_text);
 }

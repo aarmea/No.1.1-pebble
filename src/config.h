@@ -26,8 +26,6 @@
 #define SECONDS_DOTS_BIG_RADIUS 2
 #define SECONDS_DOTS_COLOR GColorBlack
 
-// TODO: Make this a user-accessible configuration option
-#define SHOW_DATE true
 #define DATE_FONT FONT_OSP_DIN_16
 #define DATE_FONT_HEIGHT 16
 #define DATE_WIDTH 16

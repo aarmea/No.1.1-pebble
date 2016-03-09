@@ -1,6 +1,7 @@
 #include <pebble.h>
 
 #include "fonts.h"
+#include "settings.h"
 #include "windows/main_window.h"
 
 static void tick_handler(struct tm *time_now, TimeUnits changed) {
@@ -10,6 +11,7 @@ static void tick_handler(struct tm *time_now, TimeUnits changed) {
 
 static void init() {
   fonts_init();
+  settings_init();
   main_window_push();
 
   tick_timer_service_subscribe(SECOND_UNIT, tick_handler);

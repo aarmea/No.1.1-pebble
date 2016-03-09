@@ -6,11 +6,13 @@
   "versionLabel": "0.1",
   "sdkVersion": "3",
   "targetPlatforms": ["chalk"],
+  "capabilities": ["configurable"],
+  "enableMultiJS": true,
   "watchapp": {
     "watchface": true
   },
   "appKeys": {
-    "dummy": 0
+    "SETTINGS_SHOW_DATE": 0
   },
   "resources": {
     "media": [
