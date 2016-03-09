@@ -19,16 +19,15 @@ static AppSync s_sync;
 static uint8_t s_sync_buffer[SETTINGS_BUFFER_SIZE];
 
 static void settings_load_from_storage() {
-  // TODO: Load s_show_date from Pebble storage
-  // For now, the setting should just work (albeit slowly) directly from JS
+  s_show_date = persist_read_bool(SETTINGS_SHOW_DATE);
 }
 
 static void settings_sync_changed_handler(const uint32_t key, const Tuple
     *new_tuple, const Tuple *old_tuple, void *context) {
   switch(key) {
     case SETTINGS_SHOW_DATE:
-      s_show_date = (int) new_tuple->value->int32;
-      // TODO: Write s_show_date to Pebble persistent storage
+      s_show_date = (bool) new_tuple->value->int32;
+      persist_write_bool(SETTINGS_SHOW_DATE, s_show_date);
       break;
     default:
       APP_LOG(APP_LOG_LEVEL_ERROR, "Invalid settings key %lu", key);
