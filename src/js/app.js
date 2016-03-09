@@ -1,4 +1,4 @@
-const CONFIGURATION_URL = 'https://aarmea.github.io/No.1.1-pebble/';
+const CONFIGURATION_URL = 'https://aarmea.github.io/No.1.1-pebble/settings.html';
 
 function sendOptionsToPebble(options) {
   Pebble.sendAppMessage(options, function() {
