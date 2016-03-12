@@ -14,6 +14,10 @@ static void init() {
   settings_init();
   main_window_push();
 
+  time_t time_on_load = time(NULL);
+  struct tm *tm_on_load = localtime(&time_on_load);
+  tick_handler(tm_on_load, SECOND_UNIT);
+
   tick_timer_service_subscribe(SECOND_UNIT, tick_handler);
 }
 

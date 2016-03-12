@@ -3,7 +3,7 @@
   "shortName": "No.1.1",
   "longName": "No.1.1",
   "companyName": "Albert Armea",
-  "versionLabel": "0.2",
+  "versionLabel": "0.3",
   "sdkVersion": "3",
   "targetPlatforms": ["chalk"],
   "capabilities": ["configurable"],
