@@ -34,7 +34,7 @@ input {
 }
 
 p {
-  margin: 1em auto;
+  margin-bottom: 1em;
 }
 
 /* TODO: Bigger checkboxes */
@@ -50,7 +50,7 @@ footer {
 }
 
 footer .content {
-  margin: 0pt 20pt 20pt 20pt;
+  margin: 10pt 20pt 10pt 20pt;
 }
 
 footer ul li {
