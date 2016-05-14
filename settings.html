@@ -3,11 +3,28 @@
   <head>
     <title>No.1.1 Settings</title>
     <script src="settings_src/settings.js"></script>
+    <link href="settings_src/settings.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width" />
   </head>
-  <body>
-    <h1>No.1.1 Settings</h1>
-    <h2>Complications</h2>
-    <label>Date <input type="checkbox" id="showDate" /></label><br>
-    <input type="submit" id="submitButton" value="Save" />
+  <body class="site">
+    <main class="site-content">
+      <input type="checkbox" id="showDate" />
+      <label for="showDate">Show date on watchface</label>
+      <br>
+
+      <input type="submit" id="submitButton" value="Apply" />
+    </main>
+
+    <footer>
+      <div class="content">
+        <p><a href="https://github.com/aarmea/No.1.1-pebble/issues" target="_blank">Report a bug or request a feature</a>
+        <ul>
+          <li>&copy; 2015-2016 <a href="http://www.albertarmea.com" target="_blank">Albert Armea</a>
+          <li>Released under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>
+          <li><a href="https://www.github.com/aarmea/No.1.1-pebble" target="_blank">Source on GitHub</a>
+          <li>Uses the <a href="http://ospublish.constantvzw.org/foundry/osp-din/" target="_blank">OSP-DIN font</a>, included under the <a href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL" target="_blank">Open Font License</a>
+        </ul>
+      </div>
+    </footer>
   </body>
 </html>
